@@ -77,7 +77,7 @@ var ccv = {
 	detect_objects : function (canvas, cascade, interval, min_neighbors) {
 		var scale = Math.pow(2, 1 / (interval + 1));
 		var next = interval + 1;
-		var scale_upto = Math.floor(Math.log(Math.min(cascade.width, cascade.height)) / Math.log(scale));
+		var scale_upto = Math.floor(Math.log(Math.min(canvas.width / cascade.width, canvas.height / cascade.height)) / Math.log(scale));
 		var pyr = new Array((scale_upto + next * 2) * 4);
 		pyr[0] = canvas;
 		pyr[0].data = pyr[0].getContext("2d").getImageData(0, 0, pyr[0].width, pyr[0].height).data;
